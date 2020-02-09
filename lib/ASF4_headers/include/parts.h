@@ -36,6 +36,6 @@
 
 #include "samd.h"
 
-#include "hri_e51.h"
+#include "hri_d51.h"
 
 #endif /* ATMEL_PARTS_H */
