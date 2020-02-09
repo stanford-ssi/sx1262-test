@@ -69,6 +69,7 @@ void setup() {
     Serial.println(state);
     while (true);
   }
+
 }
 
 void loop() {
@@ -81,7 +82,7 @@ void loop() {
   //       on non-blocking transmission method.
   //int state = lora.transmit("Hello World!,Hello World!");
 
-  int state = 0;
+  //int state = 0;
 
   //lora.transmitDirect(0);
   // you can also transmit byte array up to 256 bytes long
