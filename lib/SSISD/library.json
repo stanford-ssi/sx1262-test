@@ -1,0 +1,13 @@
+{
+    "name": "SSISD",
+    "build":{
+        "flags":
+        [
+            "-Idiskio",
+            "-Isd_mmc",
+            "-IFatFs/source",
+            "-Imisc"
+        ],
+        "libArchive": false
+    }
+}

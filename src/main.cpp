@@ -1,20 +1,10 @@
 #include <Arduino.h>
+
 #include "ff.h"
-#include "hal_mci_sync.h"
-#include "hpl_sdhc_config.h"
-#include "hal_gpio.h"
 #include "sd_mmc_start.h"
-#include "fatfs_main.h"
-#include "sd_mmc.h"
-#include "conf_sd_mmc.h"
-
-
-
 
 FATFS fs;
 FIL file_object;
-
-
 
 
 void setup() {
@@ -48,11 +38,6 @@ void setup() {
 
   delay(1000);
 
-  
-  while (SD_MMC_OK != sd_mmc_check(0)) {
-		Serial.println("Waiting...");
-    delay(100);
-	}
 
   Serial.println("B");
   
@@ -74,7 +59,7 @@ void setup() {
 
 void loop(){
 
-  f_open(&file_object, "hey.txt", FA_WRITE | FA_CREATE_ALWAYS);
+  f_open(&file_object, "hello.txt", FA_WRITE | FA_CREATE_ALWAYS);
 
   
   char string[] = "fjdkasljfdklajflkjdklasjflkdklafkldjaklfkldklaflkadsfldjklajfldsjklfjkladsklajffjdkasljfdklajflkjdklasjflkfjdkasljfdklajflkjdklasjflkdklafkldjaklfkldklaflkadsfldjklajfldsjklfjkladsklajffjdkasljfdklajflkjdklasjflkfjdkasljfdklajflkjdklasjflkdklafkldjaklfkldklaflkadsfldjklajfldsjklfjkladsklajffjdkasljfdklajflkjdklasjflkfjdkasljfdklajflkjdklasjflkdklafkldjaklfkldklaflkadsfldjklajfldsjklfjkladsklajffjdkasljfdklajflkjdklasjflkfjdkasljfdklajflkjdklasjflkdklafkldjaklfkldklaflkadsfldjklajfldsjklfjkladsklajffjdkasljfdklajflkjdklasjflkdklafkldjaklfkldklaflkadsfldjklajfldsjklfjkladsklajffjdkasljfdklajflkjdklasjflkdklafkldjaklfkldklaflkadsfldjklajfldsjklfjkladsklajffjdkasljfdklajflkjdklasjflkdklafkldjaklfkldklaflkadsfldjklajfldsjklfjkladsklajffjdkasljfdklajflkjdklasjflkdklafkldjaklfkldklaflkadsfldjklajfldsjklfjkladsklajffjdkasljfdklajflkjdklasjflkdklafkldjaklfkldklaflkadsfldjklajfldsjklfjkladsklajffjdkasljfdklajflkjdklasjflkdklafkldjaklfkldklaflkadsfldjklajfldsjklfjkladsklajfdjfdlksajflkdjskljaflkdjslkafjkl;dsajkl;fjdl;ksajflk;dsj;lkafjd;klsjakl;fjkldsjjfhkjhdfjkghfdkjghljkfdshkgljfdjklshgjkfdshjklgfdlkjshgkfjdklsghljkfsdhgkjfhdlkjsghd";
