@@ -6,7 +6,13 @@
             "-Idiskio",
             "-Isd_mmc",
             "-IFatFs/source",
-            "-Imisc"
+            "-Imisc",
+            "-Iinclude",
+            "-Idfp/include",
+            "-Ihri",
+            "-Ihal/include",
+            "-Ihpl/port",
+            "-Ihal/utils/include"
         ],
         "libArchive": false
     }
