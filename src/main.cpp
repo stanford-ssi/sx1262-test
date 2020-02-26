@@ -1,15 +1,15 @@
 #include <Arduino.h>
 
 #include "ff.h"
-#include "sd_mmc_start.h"
+#include "SSISD.hpp"
 
 FATFS fs;
 FIL file_object;
 
+SSISD sdcard;
 
 void setup() {
-  MCI_0_init();
-  sd_mmc_stack_init();
+  sdcard.init();
   Serial.begin(9600);
   pinMode(1,OUTPUT);
   pinMode(2,OUTPUT);
@@ -59,7 +59,7 @@ void setup() {
 
 void loop(){
 
-  f_open(&file_object, "hello.txt", FA_WRITE | FA_CREATE_ALWAYS);
+  f_open(&file_object, "test3.txt", FA_WRITE | FA_CREATE_ALWAYS);
 
   
   char string[] = "fjdkasljfdklajflkjdklasjflkdklafkldjaklfkldklaflkadsfldjklajfldsjklfjkladsklajffjdkasljfdklajflkjdklasjflkfjdkasljfdklajflkjdklasjflkdklafkldjaklfkldklaflkadsfldjklajfldsjklfjkladsklajffjdkasljfdklajflkjdklasjflkfjdkasljfdklajflkjdklasjflkdklafkldjaklfkldklaflkadsfldjklajfldsjklfjkladsklajffjdkasljfdklajflkjdklasjflkfjdkasljfdklajflkjdklasjflkdklafkldjaklfkldklaflkadsfldjklajfldsjklfjkladsklajffjdkasljfdklajflkjdklasjflkfjdkasljfdklajflkjdklasjflkdklafkldjaklfkldklaflkadsfldjklajfldsjklfjkladsklajffjdkasljfdklajflkjdklasjflkdklafkldjaklfkldklaflkadsfldjklajfldsjklfjkladsklajffjdkasljfdklajflkjdklasjflkdklafkldjaklfkldklaflkadsfldjklajfldsjklfjkladsklajffjdkasljfdklajflkjdklasjflkdklafkldjaklfkldklaflkadsfldjklajfldsjklfjkladsklajffjdkasljfdklajflkjdklasjflkdklafkldjaklfkldklaflkadsfldjklajfldsjklfjkladsklajffjdkasljfdklajflkjdklasjflkdklafkldjaklfkldklaflkadsfldjklajfldsjklfjkladsklajffjdkasljfdklajflkjdklasjflkdklafkldjaklfkldklaflkadsfldjklajfldsjklfjkladsklajfdjfdlksajflkdjskljaflkdjslkafjkl;dsajkl;fjdl;ksajflk;dsj;lkafjd;klsjakl;fjkldsjjfhkjhdfjkghfdkjghljkfdshkgljfdjklshgjkfdshjklgfdlkjshgkfjdklsghljkfsdhgkjfhdlkjsghd";
