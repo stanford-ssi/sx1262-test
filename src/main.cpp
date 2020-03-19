@@ -81,6 +81,3 @@ void loop(){
   digitalWrite(4,LOW);
   delay(500);
 }
-
-
-
